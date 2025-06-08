@@ -4,24 +4,24 @@ pipeline{
        maven 'Maven'
        }
     stages{
-    stage('Checkout'){
-      steps{
-        git branch :'master',url:'https://github.com/Sushpatil12/mvn.git'
-        }
+       stage('Checkout'){
+           steps{
+                git branch :'master',url:'https://github.com/Sushpatil12/mvn.git'
+          }
        }
      stage('Build'){
-       steps{
-         sh 'mvn clean package'
+          steps{
+              sh 'mvn clean package'
         }
        }
      stage('Test'){
-        steps{
-          sh 'mvn test'
+           steps{
+              sh 'mvn test'
          }
        }
      stage('Run Application'){
-       steps{
-         sh 'java -jar target/Mymvn1-1.0-SNAPSHOT.jar'
+          steps{
+              sh 'java -jar target/Mymvn1-1.0-SNAPSHOT.jar'
         }
        }
       }
